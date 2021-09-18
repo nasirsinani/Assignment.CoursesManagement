@@ -1,3 +1,4 @@
+using Assignment.CoursesManagement.Core;
 using AssignmentCoursesManagement.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,6 +26,9 @@ namespace Assignmet.CoursesManagement
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddControllersWithViews();
             services.AddDbContext<CoursesDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
         }

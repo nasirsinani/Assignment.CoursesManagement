@@ -27,10 +27,4 @@ namespace Assignment.CoursesManagement.Core
             Students = new Collection<CourseStudent>();
         }
     }
-
-    public enum CourseType
-    {
-        Free,
-        Paid
-    }
 }
