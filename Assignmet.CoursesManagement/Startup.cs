@@ -1,7 +1,9 @@
 using Assignment.CoursesManagement.Core;
 using AssignmentCoursesManagement.Infrastructure;
 using Assignmet.CoursesManagement.Application.Interfaces;
+using Assignmet.CoursesManagement.Application.Queries;
 using Assignmet.CoursesManagement.Application.Services;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Assignmet.CoursesManagement
@@ -32,6 +35,10 @@ namespace Assignmet.CoursesManagement
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<ICourseProfileService, CourseProfileService>();
+            services.AddScoped<IStudentQueries, StudentQueries>();
+            services.AddScoped<ICourseQueries, CourseQueries>();
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             
             services.AddControllersWithViews();
 

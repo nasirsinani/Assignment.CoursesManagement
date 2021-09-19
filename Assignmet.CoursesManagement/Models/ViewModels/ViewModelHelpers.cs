@@ -1,4 +1,5 @@
 ﻿using Assignment.CoursesManagement.Core;
+using Assignmet.CoursesManagement.Application.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +66,7 @@ namespace Assignmet.CoursesManagement.Application.Models.ViewModels
 
             return courseViewModel;
         }
-        public static Course ToDomainModel(this CourseViewModel courseViewModel)
+        public static Course ToDomainModel(this CreateCourseCommand courseViewModel)
         {
             var course = new Course
             {
