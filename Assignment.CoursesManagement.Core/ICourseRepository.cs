@@ -8,8 +8,9 @@ namespace Assignment.CoursesManagement.Core
 {
     public interface ICourseRepository
     {
+        ICollection<Course> GetAll();
         Task<Course> GetCourse(int id);
         void AddCourse(Course course);
-        void RemoveCourse(Course course);
+        void UpdateCourse(Course course);
     }
 }

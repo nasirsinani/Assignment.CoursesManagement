@@ -18,7 +18,7 @@ namespace AssignmentCoursesManagement.Infrastructure
 
         public async Task<Student> Find(int id)
         {
-            return await context.Students.FindAsync(id).ConfigureAwait(false);
+            return await context.Students.FindAsync(id);
         }
 
         public ICollection<Student> GetAll()

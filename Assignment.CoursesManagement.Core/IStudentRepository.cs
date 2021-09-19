@@ -10,5 +10,6 @@ namespace Assignment.CoursesManagement.Core
     {
         ICollection<Student> GetAll();
         Task<Student> Find(int id);
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Assignment.CoursesManagement.Core;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,19 +16,28 @@ namespace AssignmentCoursesManagement.Infrastructure
         {
             this.context = context;
         }
+        public ICollection<Course> GetAll()
+        {
+            return context.Courses.Include(st => st.Students).ThenInclude(s => s.Student).ToList();
+        }
+
         public void AddCourse(Course course)
         {
             context.Courses.Add(course);
         }
 
-        public Task<Course> GetCourse(int id)
+        public void UpdateCourse(Course course)
         {
-            throw new NotImplementedException();
+            var entry = context.Courses.First(e => e.Id == course.Id);
+            context.Entry(course).CurrentValues.SetValues(course);
         }
 
-        public void RemoveCourse(Course course)
+        public Task<Course> GetCourse(int id)
         {
-            throw new NotImplementedException();
+            return context.Courses
+                .Include(st => st.Students)
+                .ThenInclude(s => s.Student)
+                .SingleOrDefaultAsync(c => c.Id == id);
         }
     }
 }

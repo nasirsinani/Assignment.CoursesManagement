@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Assignmet.CoursesManagement.Application.Models.ViewModels
 {
-    public class StudentData
+    public class SelectedStudentData
     {
         public int StudentId { get; set; }
         public string Name { get; set; }
