@@ -1,5 +1,7 @@
 using Assignment.CoursesManagement.Core;
 using AssignmentCoursesManagement.Infrastructure;
+using Assignmet.CoursesManagement.Application.Interfaces;
+using Assignmet.CoursesManagement.Application.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,7 +31,10 @@ namespace Assignmet.CoursesManagement
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<ICourseProfileService, CourseProfileService>();
+            
             services.AddControllersWithViews();
+
             services.AddDbContext<CoursesDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
         }
 
