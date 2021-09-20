@@ -29,6 +29,7 @@ namespace AssignmentCoursesManagement.Infrastructure
 
         public void AddCourse(Course course)
         {
+            if (string.IsNullOrEmpty(course.Name)) throw new ArgumentNullException(nameof(course.Name));
             Logger.LogInformation($"Adding course {course}");
             context.Courses.Add(course);
         }
