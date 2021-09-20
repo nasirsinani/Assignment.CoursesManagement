@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment.CoursesManagemen
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{13C8522C-0935-44B0-91E1-AE8A9A70D255}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursesManagement.Infrastructure.Tests", "CoursesManagement.Infrastructure.Tests\CoursesManagement.Infrastructure.Tests.csproj", "{A15196D2-CE0F-45D1-A2B3-B5763E9C3EC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursesManagement.Infrastructure.Tests", "CoursesManagement.Infrastructure.Tests\CoursesManagement.Infrastructure.Tests.csproj", "{A15196D2-CE0F-45D1-A2B3-B5763E9C3EC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagement.Application.Tests", "CourseManagement.Application.Tests\CourseManagement.Application.Tests.csproj", "{7A67D4E2-1FD3-4682-8F16-C9BFEE381268}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +37,17 @@ Global
 		{A15196D2-CE0F-45D1-A2B3-B5763E9C3EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A15196D2-CE0F-45D1-A2B3-B5763E9C3EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A15196D2-CE0F-45D1-A2B3-B5763E9C3EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A67D4E2-1FD3-4682-8F16-C9BFEE381268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A67D4E2-1FD3-4682-8F16-C9BFEE381268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A67D4E2-1FD3-4682-8F16-C9BFEE381268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A67D4E2-1FD3-4682-8F16-C9BFEE381268}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A15196D2-CE0F-45D1-A2B3-B5763E9C3EC3} = {13C8522C-0935-44B0-91E1-AE8A9A70D255}
+		{7A67D4E2-1FD3-4682-8F16-C9BFEE381268} = {13C8522C-0935-44B0-91E1-AE8A9A70D255}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6C9AD6F-5568-4B6A-9751-B51BE4AA7C2D}
