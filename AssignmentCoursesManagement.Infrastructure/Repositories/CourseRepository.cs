@@ -1,4 +1,5 @@
 ﻿using Assignment.CoursesManagement.Core;
+using Assignment.CoursesManagement.Core.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -32,12 +33,16 @@ namespace AssignmentCoursesManagement.Infrastructure
             context.Entry(course).CurrentValues.SetValues(course);
         }
 
-        public Task<Course> GetCourse(int id)
+        public async Task<Course> GetCourse(int id)
         {
-            return context.Courses
+            var course = await context.Courses
                 .Include(st => st.Students)
                 .ThenInclude(s => s.Student)
                 .SingleOrDefaultAsync(c => c.Id == id);
+
+            if (course == null) throw new CourseNotFoundException(id);
+
+            return course;
         }
     }
 }

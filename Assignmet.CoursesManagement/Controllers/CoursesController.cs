@@ -1,5 +1,6 @@
 ﻿using Assignment.CoursesManagement.Core;
 using Assignmet.CoursesManagement.Application.Commands;
+using Assignmet.CoursesManagement.Application.Filters;
 using Assignmet.CoursesManagement.Application.Interfaces;
 using Assignmet.CoursesManagement.Application.Models.ViewModels;
 using Assignmet.CoursesManagement.Application.Queries;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Assignmet.CoursesManagement.Application.Controllers
 {
+    [TypeFilter(typeof(CustomExceptionFilter))]
     public class CoursesController : Controller
     {
         private readonly IMediator mediator;
@@ -21,9 +23,9 @@ namespace Assignmet.CoursesManagement.Application.Controllers
 
         public CoursesController(IMediator mediator, IStudentQueries studentQueries, ICourseQueries courseQueries)
         {
-            this.mediator = mediator;
-            this.studentQueries = studentQueries;
-            this.courseQueries = courseQueries;
+            this.mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            this.studentQueries = studentQueries ?? throw new ArgumentNullException(nameof(studentQueries));
+            this.courseQueries = courseQueries ?? throw new ArgumentNullException(nameof(courseQueries));
         }
 
         public ActionResult Index()
